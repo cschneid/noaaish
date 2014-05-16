@@ -3,22 +3,29 @@ require 'tempfile'
 
 module Noaaish
   class Extractor
-    def initialize(input, output=destination)
+    def initialize(input, output=destination, format=:hash)
       @input = input
       @destination = output
+      @format = format
     end
 
-    attr_reader :input
+    attr_reader :input, :format
 
     def call
       # For each line, create a json record.
-      destination.write(input.each_line.map { |line|
-          NOAA_FIELDS.inject({}) do |hash, (field, range)|
-            hash.merge(field => line[range])
-          end
-        }
-        .to_json)
-      destination
+      hash = input.each_line.map { |line|
+        NOAA_FIELDS.inject({}) do |hash, (field, range)|
+          hash.merge(field => line[range])
+        end
+      }
+
+      case format
+      when :json
+        destination << hash.to_json
+        destination
+      when :hash
+        hash
+      end
     end
 
     def destination
