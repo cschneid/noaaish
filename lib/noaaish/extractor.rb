@@ -17,6 +17,7 @@ module Noaaish
           end
         }
         .to_json)
+      destination
     end
 
     def destination

@@ -14,6 +14,7 @@ module Noaaish
     def call
       result = system(curl_command)
       raise "Failed calling #{curl_command}" unless result
+      destination
     end
 
     attr_reader :station_id, :year

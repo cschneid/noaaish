@@ -16,6 +16,7 @@ module Noaaish
     def call
       zi = Zlib::Inflate.new(Zlib::MAX_WBITS + 32)
       destination << zi.inflate(input.read)
+      destination
     end
 
     def destination

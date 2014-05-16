@@ -14,6 +14,7 @@ module Noaaish
 
     def call
       system(java_command)
+      destination
     end
 
     def destination

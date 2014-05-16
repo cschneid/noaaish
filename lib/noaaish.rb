@@ -6,18 +6,14 @@ require "noaaish/extractor"
 
 # Returns a list of 
 module Noaaish
-  def self.data_for(station_id, years, final_output=StringIO.new)
+  def self.data_for(station_id, years)
     station_id = station_id
     years = Array(years)
 
-    years.map do |year|
-      f = Fetch.new(station_id, year);                 f.call
-      g = Gunzip.new(f.destination);                   g.call
-      j = Translator.new(g.destination);               j.call
-      e = Extractor.new(j.destination, final_output);  e.call
-
-      e.destination
-    end
+    years.map { |year| Fetch.new(station_id, year).call }
+         .map { |io|   Gunzip.new(io).call              }
+         .map { |io|   Translator.new(io).call          }
+         .map { |io|   Extractor.new(io).call           }
   end
 end
 
