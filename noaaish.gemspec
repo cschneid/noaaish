@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["cschneider@comverge.com"]
   spec.summary       = %q{Fetch ISH data from NOAA}
   spec.description   = %q{Fetch ISH data from NOAA}
-  spec.homepage      = ""
+  spec.homepage      = "http://www.github.com/cschneid/noaaish"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
