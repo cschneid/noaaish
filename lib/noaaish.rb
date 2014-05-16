@@ -4,7 +4,6 @@ require "noaaish/gunzip"
 require "noaaish/translator"
 require "noaaish/extractor"
 
-# Returns a list of 
 module Noaaish
   def self.data_for(station_id, years)
     station_id = station_id
