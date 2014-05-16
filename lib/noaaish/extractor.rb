@@ -1,4 +1,5 @@
 require 'json'
+require 'tempfile'
 
 module Noaaish
   class Extractor

@@ -1,3 +1,5 @@
+require 'tempfile'
+
 # Class responsible for fetching a specific station's data from the server for
 # a given year. No attempt to pre or post process the data is made.
 

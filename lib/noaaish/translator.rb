@@ -1,4 +1,5 @@
 require 'pathname'
+require 'tempfile'
 
 # Takes the terrible ISH data format and converts it into something "reasonable".
 module Noaaish

@@ -1,4 +1,5 @@
 require "zlib"
+require 'tempfile'
 
 # Inflates a given gziped file input to an output.
 # input: File object
