@@ -25,9 +25,9 @@ Or install it yourself as:
 ```
 station_id = "720538-99999"
 results = Noaaish.data_for(station_id, [2013, 2014])
-# result[0] = a Tempfile holding a JSON representation of all 2013 data
-# result[1] = a Tempfile holding a JSON representation of all 2014 data
-``
+# result[0] = an array of hashes containing all data points for 2013
+# result[1] = an array of hashes containing all data points for 2014
+```
 
 ## Contributing
 
