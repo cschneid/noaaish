@@ -4,7 +4,8 @@ require 'tempfile'
 # Takes the terrible ISH data format and converts it into something "reasonable".
 module Noaaish
   class Translator
-    ISH_JAVA_COMMAND = 'java -cp %<exe_path>s ishJava < %<input>s > %<output>s'.freeze
+    # Tail is to not print first line, which is header info
+    ISH_JAVA_COMMAND = 'java -cp %<exe_path>s ishJava < %<input>s | tail -n+2 > %<output>s'.freeze
 
     def initialize(input, output=destination)
       @input = input
